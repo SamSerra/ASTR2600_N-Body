@@ -255,6 +255,7 @@ def test():
 
 
     print("\nIf those two tables are the same, it works!")
-
+'''
 if __name__ == '__main__':
     test()
+'''

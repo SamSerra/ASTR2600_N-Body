@@ -29,6 +29,7 @@ import matplotlib.pyplot as plt
 from leapfrog import updateParticles
 from forces import test
 
+'''
 # Question 1.
 # Test forces (works)
 #------------------------------------------------------------------------#
@@ -63,7 +64,7 @@ print("{:>10} | {:>10} | {:>10}".format("Vel X", "Vel Y", "Vel Z"))
 print("-"*36)
 print("{:10.1e} | {:10.1e} | {:10.1e}".format(endVel[0][0], endVel[0][1],  endVel[0][2]))
 print("{:10.1e} | {:10.1e} | {:10.1e}".format(endVel[1][0], endVel[1][1],  endVel[1][2]))
-
+'''
 # Question 3.
 # calculateTrajectories
 #-----------------------------------------------------------------------#
@@ -102,8 +103,8 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
     velocityArray = np.zeros((N,M,numTimeSteps))
 
     # load intial data into array
-    positionArray[:,:,0] = initialPos
-    velocityArray[:,:,0] = initialVel
+    positionArray[:,:,0] = initPos
+    velocityArray[:,:,0] = initVel
     
     # calculate positions/velocities for each time, skipping t = 0
     for n in np.arange(numTimeSteps-1):
@@ -113,4 +114,4 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
         positionArray[:,:,n+1] = pos
         velocityArray[:,:,n+1] = vel
         
-    return times, positionArray, velocityArray
+    return time, positionArray, velocityArray
