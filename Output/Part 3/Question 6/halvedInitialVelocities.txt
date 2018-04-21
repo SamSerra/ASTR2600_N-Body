@@ -1,0 +1,12 @@
+ASTR2600 Final
+Sam Serra
+
+Part 3
+--------------
+
+When we halve the initial velocities, the earth falls into an elliptical orbit. This makes sense
+because the earth now doesn't have enough speed to maintain a circular orbit but, because of
+conservation of energy, will return to its starting point after 1 orbit.
+
+For the RV curve, the RV of the sun changes in a way which match the ellipical orbit of earth:
+faster when earth is at perihelion and slower when earth is apahelion. 

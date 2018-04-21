@@ -1,0 +1,8 @@
+ASTR2600 Final
+Sam Serra
+
+Part 3
+--------------
+
+Looking at the figure, we see the period is 365 days, exactly what we'd expect given the
+earth orbits the sun every 365 days.

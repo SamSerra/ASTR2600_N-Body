@@ -1,0 +1,8 @@
+ASTR2600 Final
+Sam Serra
+
+Part 3
+--------------
+
+Looking at the verticle axis of the plot, we would have to measure the radial velocity of
+a sun-like star with an earth-like planet to within an error of about .075 m/s
