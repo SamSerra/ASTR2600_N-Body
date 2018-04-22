@@ -15,6 +15,13 @@ Earth    | 5.972e24  | .999997| 0.0    | 0.0    | 0.0      | 2.98e4   | 0.0
 The calculation is run for 1000 days at a timestep of .1 days
 
 ==================
+Output
+=================
+
+Output/Part 3/Question 5
+OUtput/Part 3/Question 6
+
+==================
 Dependencies
 ==================
 
@@ -30,6 +37,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from main import calculateTrajectories
+
+# Question 5.
+#-------------------------------------------------------------------------------
 
 # set constants
 mInAu    = 1.496e11 # meters in AU
