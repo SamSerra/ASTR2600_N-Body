@@ -21,12 +21,14 @@ Dependencies
 Standard: 
     numpy
     matplotlib
+    os
 
 Non-standard:
     main
 """
 import numpy as np
 import matplotlib.pyplot as plt
+import os
 from main import calculateTrajectories
 
 # set constants
@@ -59,8 +61,8 @@ times /= secInDay
 # plotting
 #------------------------------------------------------------
 
-simDir =  '/home/samserra/Desktop/ASTR2600_FINAL/'
-outputDir = '/Output/Part 3/Question 6/'
+simDir =  os.path.dirname(os.path.abspath(__file__)) #get current dir
+outputDir = '/Output/Part 3/Question 6'
 
 # plot time vs x 
 fig, ax = plt.subplots()
@@ -72,7 +74,7 @@ ax.set_ylabel('Position [AU]')
 ax.set_title('Earth/Sun System: X component of position')
 ax.legend()
 
-fig.savefig(simDir + outputDir + 'timeVSxposition2.png')
+fig.savefig(simDir + outputDir + '/timeVSxposition2.png')
 
 #plot x-y plane
 fig, ax = plt.subplots()
@@ -90,7 +92,7 @@ ax.legend()
 
 plt.tight_layout()
 ax.axis('equal')
-fig.savefig(simDir + outputDir + 'xyPlane2.png')
+fig.savefig(simDir + outputDir + '/xyPlane2.png')
 
 # x-velocities of sun
 fig, ax = plt.subplots()
@@ -101,5 +103,5 @@ ax.set_ylabel('Radial Velocity [m/s]')
 ax.set_title('RV Plot of Sun')
 
 plt.tight_layout()
-fig.savefig(simDir + outputDir + 'sunXvelocity2.png')
+fig.savefig(simDir + outputDir + '/sunXvelocity2.png')
 

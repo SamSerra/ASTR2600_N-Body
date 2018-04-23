@@ -70,8 +70,8 @@ times /= secInDay
 # plotting
 #------------------------------------------------------------
 
-simDir =  '/home/samserra/Desktop/ASTR2600_FINAL/'
-outputDir = '/Output/Part 3/Question 5/'
+simDir = os.path.dirname(os.path.abspath(__file__))
+outputDir = '/Output/Part 3/Question 5'
 
 # plot time vs x 
 fig, ax = plt.subplots()
@@ -84,7 +84,7 @@ ax.set_ylabel('Position [AU]')
 ax.set_title('Earth/Sun System: X component of position')
 ax.legend()
 
-fig.savefig(simDir + outputDir + 'timeVSxposition.png')
+fig.savefig(simDir + outputDir + '/timeVSxposition.png')
 
 #plot x-y plane
 fig, ax = plt.subplots()
@@ -102,7 +102,7 @@ ax.legend()
 
 plt.tight_layout()
 ax.axis('equal')
-fig.savefig(simDir + outputDir + 'xyPlane.png')
+fig.savefig(simDir + outputDir + '/xyPlane.png')
 
 # x-velocities of sun
 fig, ax = plt.subplots()
@@ -113,5 +113,5 @@ ax.set_ylabel('Radial Velocity [m/s]')
 ax.set_title('RV Plot of Sun')
 
 plt.tight_layout()
-fig.savefig(simDir + outputDir + 'sunXvelocity.png')
+fig.savefig(simDir + outputDir + '/sunXvelocity.png')
 

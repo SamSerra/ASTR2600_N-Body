@@ -19,6 +19,8 @@ Dependencies
 Standard: 
     numpy
     matplotlib.pyplot
+    os
+    sys
     matplotlib.animation.FuncAnimation
 
 Non-standard:
@@ -28,6 +30,8 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.animation import FuncAnimation
 import sys
+import os
+
 from main import calculateTrajectories
 
 # Question 7.
@@ -35,13 +39,13 @@ from main import calculateTrajectories
 #------------------------------------------------------------------------------
 
 # load data
-simDir =  '/home/samserra/Desktop/ASTR2600_FINAL/'
-outputDir = 'Output/Part 4/'
-dataDir = 'Data/'
+simDir = os.path.dirname(os.path.abspath(__file__))
+outputDir = '/Output/Part 4'
+dataDir = '/Data'
 
 initPos, initVel = np.zeros((3,3)), np.zeros((3,3))
 masses, initPos[0,:],initPos[1,:],initPos[2,:], initVel[0,:], initVel[1,:], \
-    initVel[2,:] = np.loadtxt(simDir+dataDir+'kepler16.txt', delimiter=' ',unpack=True)
+    initVel[2,:] = np.loadtxt(simDir+dataDir+'/kepler16.txt', delimiter=' ',unpack=True)
 
 # Question 8.
 # plot initial positions
@@ -63,7 +67,7 @@ ax.set_title('X-Z Plane of Kepler-16ABb System')
 xAxisLimits = ax.get_xlim() #save limits for later
 yAxisLimits = ax.get_ylim()
 
-fig.savefig(simDir+outputDir+'kepler16InitialConditions.png')
+fig.savefig(simDir+outputDir+'/kepler16InitialConditions.png')
 
 # Question 9.
 # evolve
@@ -118,4 +122,4 @@ def animate(fnum):
 
 # animate
 anim = FuncAnimation(fig, animate, interval=50, frames = int(timeEvol/timeStep))
-anim.save(simDir+outputDir+'kepler16Animation.mp4')
+anim.save(simDir+outputDir+'/xkepler16Animation.mp4')
