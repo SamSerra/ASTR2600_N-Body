@@ -96,30 +96,41 @@ times, positionArray, velocityArray = calculateTrajectories(masses,initPos,initV
 
 # set up figure
 fig,ax = plt.subplots()
-ax.set(xlim=(-1.3e11,.6e11), ylim=(-1.0e11,1.0e11))
+ax.set(xlim=(-1.3e11,1.3e11), ylim=(-1.4e11,1.0e11))
 ax.set_xlabel('Position [m]')
 ax.set_ylabel('Position [m]')
 
 # initial frame
-scat = ax.scatter(positionArray[:,0,0],positionArray[:,2,0], marker='o',s=gain*masses/maxMass, c=colorArray)
-
-#qax = ax.quiver(initPos[0,:],initPos[2,:],initVel[0,:],initVel[2,:], color=colorArray)
+ax.scatter(positionArray[:,0,0],positionArray[:,2,0], \
+    marker='o', s=gain*masses/maxMass, c=colorArray)       #markers for planets
+for i in np.arange(len(masses)):  
+    ax.plot(positionArray[:,0,0].T,positionArray[:,2,0].T, c=colorArray[i]) #trajectories
+ax.quiver(positionArray[:,0,0],positionArray[:,2,0],\
+          velocityArray[:,0,0],velocityArray[:,0,0], color = colorArray) #velocities
 
 # animation function
 def animate(fnum):
     # progress bar
     sys.stdout.write('\rdrawing frame {}/{}'.format(fnum,int(timeEvol/timeStep)))
     sys.stdout.flush()
-    
-    # update title
+
+    # delete previous trajectory, markers, and velocity arrow
+    ax.clear()
+
+    # update title and axis 
     ax.set_title('X-Z Plane of Kepler-16ABb System: {} Days'.format(times[fnum]/secInDay))
-    
-    ax.scatter(positionArray[:,0,fnum],positionArray[:,2,fnum], \
-               marker='o',s=gain*masses/maxMass, c=colorArray)
-    
-    # update velocities
-    # velocityDict['particle{}'.format(i)] =  ax.quiver(positionArray[i,0,fnum],positionArray[i,2,fnum],velocityArray[i,0,fnum],velocityArray[i,0,fnum], color=colorArray[i])
+    ax.set(xlim=(-1.3e11,1.3e11), ylim=(-1.4e11,1.0e11))
+    ax.set_xlabel('Position [m]')
+    ax.set_ylabel('Position [m]')
+
+    # update trajectories, markers, and velocity vectors
+    ax.scatter(positionArray[:,0,fnum],positionArray[:,2,fnum],\
+               marker='o', s=gain*masses/maxMass, c=colorArray)   
+    for i in np.arange(len(masses)):
+        ax.plot(positionArray[i,0,0:fnum].T,positionArray[i,2,0:fnum].T, c=colorArray[i])
+    ax.quiver(positionArray[:,0,fnum],positionArray[:,2,fnum],\
+              velocityArray[:,0,fnum],velocityArray[:,0,fnum], color = colorArray)
 
 # animate
 anim = FuncAnimation(fig, animate, interval=50, frames = int(timeEvol/timeStep))
-anim.save(simDir+outputDir+'/xkepler16Animation.mp4')
+anim.save(simDir+outputDir+'/kepler16Animation.mp4')
