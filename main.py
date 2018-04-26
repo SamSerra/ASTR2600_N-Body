@@ -23,7 +23,7 @@ Non-standard (make sure on path):
     leapfrog
     forces
 """
-
+import sys
 import numpy as np
 import matplotlib.pyplot as plt
 from leapfrog import updateParticles
@@ -113,5 +113,10 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
         
         positionArray[:,:,n+1] = pos
         velocityArray[:,:,n+1] = vel
+
+        # progress bar
+        sys.stdout.write('\rcalculating time {}/{}'.format(n,numTimeSteps-1))
+        sys.stdout.flush()
+
         
     return time, positionArray, velocityArray
