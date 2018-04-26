@@ -44,8 +44,7 @@ outputDir = '/Output/Part 4'
 dataDir = '/Data'
 
 initPos, initVel = np.zeros((3,3)), np.zeros((3,3))
-masses, initPos[0,:],initPos[1,:],initPos[2,:], initVel[0,:], initVel[1,:], \
-    initVel[2,:] = np.loadtxt(simDir+dataDir+'/kepler16.txt', delimiter=' ',unpack=True)
+masses, initPos[0,:],initPos[1,:],initPos[2,:], initVel[0,:], initVel[1,:], initVel[2,:] = np.loadtxt(simDir+dataDir+'/kepler16.txt', delimiter=' ',unpack=True)
 
 # Question 8.
 # plot initial positions
@@ -64,9 +63,6 @@ ax.set_xlabel('Position [m]')
 ax.set_ylabel('Position [m]')
 ax.set_title('X-Z Plane of Kepler-16ABb System')
 
-xAxisLimits = ax.get_xlim() #save limits for later
-yAxisLimits = ax.get_ylim()
-
 fig.savefig(simDir+outputDir+'/kepler16InitialConditions.png')
 
 # Question 9.
@@ -77,7 +73,7 @@ fig.savefig(simDir+outputDir+'/kepler16InitialConditions.png')
 secInDay = 3600*24  #seconds in day
 
 # set up simulation parameters
-timeEvol = 500 #days
+timeEvol = 500 #days 
 timeStep = .5  #days
 
 timeEvol *= secInDay #convert to seconds
@@ -101,17 +97,21 @@ ax.set_xlabel('Position [m]')
 ax.set_ylabel('Position [m]')
 
 # initial frame
-ax.scatter(positionArray[:,0,0],positionArray[:,2,0], \
-    marker='o', s=gain*masses/maxMass, c=colorArray)       #markers for planets
+
+#markers for planets
+ax.scatter(positionArray[:,0,0],positionArray[:,2,0], marker='o', s=gain*masses/maxMass, c=colorArray)       
+
+#trajectories
 for i in np.arange(len(masses)):  
-    ax.plot(positionArray[:,0,0].T,positionArray[:,2,0].T, c=colorArray[i]) #trajectories
-ax.quiver(positionArray[:,0,0],positionArray[:,2,0],\
-          velocityArray[:,0,0],velocityArray[:,0,0], color = colorArray) #velocities
+    ax.plot(positionArray[:,0,0].T,positionArray[:,2,0].T, c=colorArray[i]) 
+    
+#velocities
+ax.quiver(positionArray[:,0,0],positionArray[:,2,0], velocityArray[:,0,0],velocityArray[:,2,0], color = colorArray)
 
 # animation function
 def animate(fnum):
     # progress bar
-    sys.stdout.write('\rdrawing frame {}/{}'.format(fnum,int(timeEvol/timeStep)))
+    sys.stdout.write('\rdrawing frame {}/{}'.format(fnum,int((timeEvol/timeStep) + 1)))
     sys.stdout.flush()
 
     # delete previous trajectory, markers, and velocity arrow
@@ -124,13 +124,13 @@ def animate(fnum):
     ax.set_ylabel('Position [m]')
 
     # update trajectories, markers, and velocity vectors
-    ax.scatter(positionArray[:,0,fnum],positionArray[:,2,fnum],\
-               marker='o', s=gain*masses/maxMass, c=colorArray)   
+    ax.scatter(positionArray[:,0,fnum],positionArray[:,2,fnum], marker='o', s=gain*masses/maxMass, c=colorArray)
+    
     for i in np.arange(len(masses)):
         ax.plot(positionArray[i,0,0:fnum].T,positionArray[i,2,0:fnum].T, c=colorArray[i])
-    ax.quiver(positionArray[:,0,fnum],positionArray[:,2,fnum],\
-              velocityArray[:,0,fnum],velocityArray[:,0,fnum], color = colorArray)
+        
+    ax.quiver(positionArray[:,0,fnum],positionArray[:,2,fnum], velocityArray[:,0,fnum],velocityArray[:,2,fnum], color = colorArray)
 
 # animate
-anim = FuncAnimation(fig, animate, interval=50, frames = int(timeEvol/timeStep))
+anim = FuncAnimation(fig, animate, interval=50, frames = int((timeEvol/timeStep) + 1))
 anim.save(simDir+outputDir+'/kepler16Animation.mp4')
