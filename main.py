@@ -92,7 +92,7 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
     """
     
     # create time array
-    time = np.arange(0,timeEvol,dt)
+    time = np.arange(0,timeEvol+dt,dt) #time array is end inclusive
 
     # create blank N by m by number of time steps arrays
     N = len(masses)
