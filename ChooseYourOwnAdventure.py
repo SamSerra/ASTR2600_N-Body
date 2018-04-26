@@ -74,11 +74,7 @@ fig = plt.figure()
 ax3d = fig.add_subplot(111, projection = '3d')
 
 ax3d.set_title('Uniform Cube of Particles: {} Days'.format(times[0]/secInDay))
-'''
-ax3d.set_xlabel('Position [m]')
-ax3d.set_ylabel('Position [m]')
-ax3d.set_zlabel('Position [m]')
-'''
+
 ax3d.set_axis_off()
 
 ax3d.grid(False) #turn grid off
@@ -102,7 +98,7 @@ ax3d.scatter3D(positionArray[:,0,0], positionArray[:,1,0], positionArray[:,2,0])
 
 #trajectories
 for i in np.arange(len(masses)):  
-    ax3d.plot3D(positionArray[:,0,0].T,positionArray[:,1,0].T, positionArray[:,2,0].T)
+    ax3d.plot3D(positionArray[:,0,0].T,positionArray[:,1,0].T, positionArray[:,2,0].T, color='blue', lw=1)
     
 #velocity vectors
 ax3d.quiver3D(positionArray[:,0,0],positionArray[:,1,0], positionArray[:,2,0], velocityArray[:,0,0],velocityArray[:,1,0],velocityArray[:,2,0])
@@ -133,12 +129,7 @@ def animate(fnum):
     # update title and axis 
     ax3d.set_title('Uniform Cube of Particles: {} Days'.format(times[fnum]/secInDay))
     ax3d.set(xlim3d=(xAxisLim1,xAxisLim2), ylim3d=(yAxisLim1, yAxisLim2), zlim3d=(zAxisLim1,zAxisLim2))
-    '''
-    ax3d.set_xlabel('Position [m]')
-    ax3d.set_ylabel('Position [m]')
-    ax3d.set_zlabel('Position [m]')
-    '''
-
+    
     ax3d.set_axis_off()
     ax3d.grid(False) #turn grid off
 
@@ -150,7 +141,7 @@ def animate(fnum):
     ax3d.scatter3D(positionArray[:,0,fnum],positionArray[:,1,fnum], positionArray[:,2,fnum])
     
     for i in np.arange(len(masses)):
-        ax3d.plot3D(positionArray[i,0,0:fnum].T, positionArray[i,1,0:fnum].T, positionArray[i,2,0:fnum].T, color='blue')
+        ax3d.plot3D(positionArray[i,0,0:fnum].T, positionArray[i,1,0:fnum].T, positionArray[i,2,0:fnum].T, color='blue',lw=1)
         
     ax3d.quiver3D(positionArray[:,0,fnum],positionArray[:,1,fnum], positionArray[:,2,fnum], velocityArray[:,0,fnum], velocityArray[:,1,fnum], velocityArray[:,2,fnum])
 
