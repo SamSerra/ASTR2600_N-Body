@@ -19,7 +19,6 @@ Output
 =================
 
 Output/Part 3/Question 5
-OUtput/Part 3/Question 6
 
 ==================
 Dependencies

@@ -15,6 +15,12 @@ Earth    | 5.972e24  | .999997| 0.0    | 0.0    | 0.0      | 2.98e4/2   | 0.0
 The calculation is run for 1000 days at a timestep of .1 days
 
 ==================
+Output
+=================
+
+Output/Part 3/Question 6
+
+==================
 Dependencies
 ==================
 
