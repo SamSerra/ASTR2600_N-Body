@@ -20,44 +20,27 @@ Any .txt files in */Output/...* correspond to responses to question in the proje
 3. **Earth in (Circular) Orbit Around the Sun**
     * Question 4: */EarthInCircularOrbit.py*
     
-    * Question 5: */EarthInCircularOrbit.py*
-    
-       * Output to */Output/Part 3/Question 5/...*
-       
-          * timeVSxPosition.png
-	  
+    * Question 5: */EarthInCircularOrbit.py*    
+       * Output to */Output/Part 3/Question 5/...*       
+          * timeVSxPosition.png	  
 	  * xyPlane.png
-	  
 	  * sunXvelocity.png
 	  
     * Question 6: */EarthInCircularOrbit2.py*
-    
        * Output to */Output/Part 3/Question 6*
-       
           * timeVSxPosition2.png
-	  
 	  * xyPlane2.png
-	  
 	  * sunXvelocity2.png
 
 4. **The Cicumbinary Exoplanet Kepler-16ABb**
-
     * Question 7: */ExoplanetKepler16.py*
-    
     * Question 8: */ExoplanetKepler16.py*
-    
        * Output to */Output/Part 4/kepler16InitialConditions.png*
-       
     * Question 9: */ExoplanetKepler16.py*
-    
     * Question 10: */ExoplanetKepler16.py*
-    
        * Output to */Output/Part 4/kepler16Animation.mp4*
 
 5. **Choose Your Own Adventure**
-
     * Question 11: */ChooseYourOwnAdventure.py*
-    
     * Question 12: */ChooseYourOwnAdventure.py*
-
        * Output to */Output/Part 5/uniformCube.py*
