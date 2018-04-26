@@ -34,13 +34,17 @@ Any .txt files in */Output/...* correspond to responses to question in the proje
 
 4. **The Cicumbinary Exoplanet Kepler-16ABb**
     * Question 7: */ExoplanetKepler16.py*
+    
     * Question 8: */ExoplanetKepler16.py*
        * Output to */Output/Part 4/kepler16InitialConditions.png*
+       
     * Question 9: */ExoplanetKepler16.py*
+    
     * Question 10: */ExoplanetKepler16.py*
        * Output to */Output/Part 4/kepler16Animation.mp4*
 
 5. **Choose Your Own Adventure**
     * Question 11: */ChooseYourOwnAdventure.py*
+    
     * Question 12: */ChooseYourOwnAdventure.py*
        * Output to */Output/Part 5/uniformCube.py*
