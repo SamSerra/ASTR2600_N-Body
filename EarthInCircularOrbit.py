@@ -37,8 +37,9 @@ import matplotlib.pyplot as plt
 import os
 from main import calculateTrajectories
 
-# Question 5.
-#-------------------------------------------------------------------------------
+# Question 4.
+# evolve
+#-------------------------------------------------------------------------------#
 
 # set constants
 mInAu    = 1.496e11 # meters in AU
@@ -59,15 +60,16 @@ timeEvol *= secInDay #seconds
 timeStep *= secInDay #seconds
 
 # run simulation
-#-------------------------------------------------------------
+#-------------------------------------------------------------------------------#
 times, positionArray, velocityArray = calculateTrajectories(masses,initPos,initVel,timeEvol,timeStep)
 
 # convert back to AU and days
 positionArray /= mInAu
 times /= secInDay
 
+# Question 5.
 # plotting
-#------------------------------------------------------------
+#-------------------------------------------------------------------------------#
 
 simDir = os.path.dirname(os.path.abspath(__file__))
 outputDir = '/Output/Part 3/Question 5'

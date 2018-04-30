@@ -63,6 +63,8 @@ ax.set_xlabel('Position [m]')
 ax.set_ylabel('Position [m]')
 ax.set_title('X-Z Plane of Kepler-16ABb System')
 
+ax.set_ylim(-.3e11,1.0e11)
+
 fig.savefig(simDir+outputDir+'/kepler16InitialConditions.png')
 
 # Question 9.
@@ -111,7 +113,7 @@ ax.quiver(positionArray[:,0,0],positionArray[:,2,0], velocityArray[:,0,0],veloci
 # animation function
 def animate(fnum):
     # progress bar
-    sys.stdout.write('\rdrawing frame {}/{}'.format(fnum,int((timeEvol/timeStep) + 1)))
+    sys.stdout.write('\rdrawing frame {}/{}'.format(fnum,int((timeEvol/timeStep))))
     sys.stdout.flush()
 
     # delete previous trajectory, markers, and velocity arrow

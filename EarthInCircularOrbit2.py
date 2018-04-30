@@ -29,6 +29,7 @@ Standard:
     matplotlib
     os
 
+
 Non-standard:
     main
 """
@@ -36,6 +37,10 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 from main import calculateTrajectories
+
+# Question 6.
+# decreased init velocity
+#------------------------------------------------------------------------#
 
 # set constants
 mInAu    = 1.496e11 # meters in AU
