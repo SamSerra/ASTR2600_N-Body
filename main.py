@@ -71,8 +71,8 @@ print("{:10.1e} | {:10.1e} | {:10.1e}".format(endVel[1][0], endVel[1][1],  endVe
 
 def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
     """
-    Calculates position and velocity of N particles in M dimensions for multiple
-    times. 
+    Calculates position and velocity of N particles in M dimensions for timestep dt
+    Expects arrays as numpy arrays.
 
     Inputs
     =========
@@ -90,6 +90,12 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
     velocityArray:  (N,M,numTimeSteps)-array of velocities for each N particles in M
                   dimensions for each time
     """
+    # make sure input arrays are numpy arrays
+    masses, initPos, initVel = np.array(masses), np.array(initPos), np.array(initVel)
+
+    # make sure arrays have proper length
+    assert(len(initPos)==len(initVel), 'Position and velocity arrays must have same length')
+    assert(len(masses)==len(initPos), 'Mass array must have same length as position array')
     
     # create time array
     time = np.arange(0,timeEvol+dt,dt) #time array is end inclusive
