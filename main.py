@@ -94,8 +94,8 @@ def calculateTrajectories(masses, initPos, initVel, timeEvol, dt):
     masses, initPos, initVel = np.array(masses), np.array(initPos), np.array(initVel)
 
     # make sure arrays have proper length
-    assert(len(initPos)==len(initVel), 'Position and velocity arrays must have same length')
-    assert(len(masses)==len(initPos), 'Mass array must have same length as position array')
+    assert len(initPos)==len(initVel), 'Position and velocity arrays must have same length'
+    assert len(masses)==len(initPos), 'Mass array must have same length as position array'
     
     # create time array
     time = np.arange(0,timeEvol+dt,dt) #time array is end inclusive
